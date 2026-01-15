@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grupo Terra — Crecimiento sostenible, innovación y valor a largo plazo</title>
+  <meta name="description" content="Grupo Terra: holding dedicado a vivienda vertical sustentable, comercialización y producción agrícola de frutas. Innovación, sostenibilidad y crecimiento a largo plazo." />
+  <meta name="theme-color" content="#20432a" />
+  <meta property="og:title" content="Grupo Terra — Crecimiento sostenible e innovación" />
+  <meta property="og:description" content="Holding dedicado a vivienda vertical sustentable, comercialización y producción agrícola de frutas. Innovación, sostenibilidad y crecimiento." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80" />
+  <link rel="canonical" href="https://www.grupoterramexico.com/" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --surface: #f6f6f5;
+      --muted: #6b6b6b;
+      --accent: #20432a; /* dark green */
+      --accent-2: #3a5a40; /* secondary green */
+      --earth: #8b6b4a;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 6px 18px rgba(32,67,42,0.08);
+      --radius: 12px;
+      --transition: 250ms cubic-bezier(.2,.9,.3,1);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color-scheme: light;
+    }
+
+    /* Mobile-first base layout */
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#21302a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+      letter-spacing: -0.01em;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:1.25rem;}
+
+    header.site-header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+      border-bottom: 1px solid rgba(32,67,42,0.05);
+    }
+    .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 1rem}
+    .brand{
+      display:flex;align-items:center;gap:.75rem;
+    }
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow: var(--card-shadow);
+    }
+    .brand .title{font-weight:700;font-size:0.98rem}
+    nav a{font-weight:600;color:var(--muted);padding:.55rem .65rem;border-radius:8px}
+    nav a:hover{background:rgba(32,67,42,0.04);color:var(--accent)}
+
+    /* HERO */
+    .hero{
+      min-height:70vh;
+      display:grid;
+      place-items:center;
+      padding:4rem 1rem;
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background-image: linear-gradient(180deg, rgba(32,67,42,0.55), rgba(8,18,12,0.35));
+      z-index:1;
+    }
+    .hero-bg{
+      position:absolute;inset:0;background-size:cover;background-position:center center;filter:contrast(1.05) saturate(1.05);z-index:0;
+      /* Placeholder background image: replace URL later */
+      background-image: url("https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1770&q=80");
+    }
+    .hero-inner{
+      position:relative;z-index:2;max-width:1100px;width:100%;
+      display:grid;gap:1rem;align-items:center;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      padding:2rem;border-radius:14px;backdrop-filter: blur(6px);
+    }
+    h1{
+      margin:0;font-size:clamp(1.6rem,4.5vw,2.6rem);line-height:1.02;font-weight:800;letter-spacing:-0.02em;
+    }
+    .tagline{font-size:1.05rem;opacity:.96;color:rgba(255,255,255,0.95);margin-top:.35rem}
+    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;padding:.65rem 1rem;border-radius:10px;border:0;font-weight:700;cursor:pointer;
+      transition:transform var(--transition), box-shadow var(--transition), background-color var(--transition), color var(--transition);
+      text-decoration:none;
+    }
+    .btn:focus{outline:3px solid rgba(32,67,42,0.16);outline-offset:2px}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow: 0 8px 24px rgba(32,67,42,0.16);
+    }
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(32,67,42,0.22)}
+    .btn-ghost{
+      background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.12)
+    }
+    .btn-ghost:hover{transform:translateY(-2px); background: rgba(255,255,255,0.18)}
+
+    /* ABOUT & SERVICES */
+    main {padding:2.5rem 0 4rem;}
+    section {padding:2rem 0}
+    .lead{color:var(--muted);font-size:1rem;max-width:72ch}
+    .grid-3{display:grid;gap:1rem}
+    .services{display:grid;gap:1rem;margin-top:1rem}
+    .service-card{
+      background: linear-gradient(180deg, #ffffff, var(--surface));
+      border-radius:12px;padding:1.1rem;border:1px solid rgba(32,67,42,0.04);box-shadow:var(--card-shadow);
+      display:flex;gap:1rem;align-items:flex-start;transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(32,67,42,0.06)}
+    .service-icon{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(32,67,42,0.08), rgba(32,67,42,0.04));flex:0 0 56px}
+    .service-title{font-weight:700;margin:0 0 .25rem 0}
+    .service-desc{margin:0;color:var(--muted);font-size:0.96rem}
+
+    /* FOUNDERS */
+    .founders-grid{display:grid;gap:1rem;margin-top:1rem}
+    .founder{
+      background:linear-gradient(180deg,#ffffff,var(--surface));
+      border-radius:12px;padding:1rem;border:1px solid rgba(32,67,42,0.04);box-shadow:var(--card-shadow);display:flex;gap:.9rem;align-items:center;
+      transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .founder:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(32,67,42,0.06)}
+    .avatar{width:80px;height:80px;border-radius:10px;overflow:hidden;flex:0 0 80px;background:#eee}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .founder h3{margin:0;font-size:1.05rem}
+    .founder p{margin:.25rem 0 0;color:var(--muted);font-size:0.95rem}
+
+    /* CTA strip */
+    .cta-strip{
+      margin:2rem 0;padding:1.8rem;border-radius:14px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 12px 36px rgba(32,67,42,0.18);
+    }
+    .cta-strip p{margin:0;font-weight:700;font-size:1.05rem}
+    .cta-actions{display:flex;gap:.75rem}
+    .btn-ghost-inverse{background:transparent;color:white;border:1px solid rgba(255,255,255,0.22)}
+    .btn-ghost-inverse:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+
+    /* CONTACT */
+    .contact-grid{display:grid;gap:1rem}
+    .contact-card{display:flex;gap:0.9rem;align-items:center;background:linear-gradient(180deg,#fff,var(--surface));padding:1rem;border-radius:10px;border:1px solid rgba(32,67,42,0.04);box-shadow:var(--card-shadow)}
+    .contact-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:8px;background:rgba(32,67,42,0.06);flex:0 0 48px}
+    form.contact-form{display:grid;gap:.75rem}
+    form .row{display:grid;gap:.6rem}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(32,67,42,0.08);font-size:0.97rem;background:white
+    }
+    textarea{min-height:120px;resize:vertical;padding-top:.8rem}
+    form .form-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+    .muted{color:var(--muted);font-size:.95rem}
+
+    footer.site-footer{padding:2rem 0;border-top:1px solid rgba(32,67,42,0.04);color:var(--muted);font-size:.92rem}
+    .legal{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+    /* Responsive */
+    @media(min-width:720px){
+      .hero-inner{padding:0 1rem}
+      .hero-grid{grid-template-columns:1fr 420px;gap:1.5rem;padding:2.2rem}
+      .services{grid-template-columns:repeat(3,1fr)}
+      .founders-grid{grid-template-columns:repeat(3,1fr)}
+      .contact-grid{grid-template-columns:1fr 380px}
+    }
+
+    @media(min-width:1000px){
+      .container{padding:2rem}
+      header.site-header .container{padding:1rem 2rem}
+    }
+
+    /* Small niceties */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">GT</div>
+        <div>
+          <div class="title">Grupo Terra</div>
+          <div class="muted" style="font-size:0.82rem">Crecimiento sostenible · Innovación</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#lineas">Líneas</a>
+        <a href="#fundadores">Fundadores</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg" role="img" aria-label="Imagen corporativa - construcción y agricultura"></div>
+      <div class="hero-inner container">
+        <div class="hero-grid" aria-hidden="false">
+          <div>
+            <h1>Grupo Terra</h1>
+            <p class="tagline">Impulsamos crecimiento sostenible e innovación para crear valor duradero en vivienda, comercio y producción agrícola.</p>
+
+            <div class="hero-ctas" role="group" aria-label="Acciones principales">
+              <a class="btn btn-primary" href="#nosotros">Conocer más</a>
+              <a class="btn btn-ghost" href="#contacto">Contacto</a>
+            </div>
+
+            <p class="muted" style="margin-top:1.1rem">Holding diversificado enfocado en proyectos rentables y sostenibles, con visión a largo plazo en México y mercados internacionales.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.8rem;justify-content:center;">
+            <div style="background:rgba(255,255,255,0.06);padding:1rem;border-radius:10px">
+              <h2 style="color:white;margin:0;font-size:1rem;">Nuestras áreas</h2>
+              <p style="margin:.4rem 0 0;color:rgba(255,255,255,0.92)">Vivienda sustentable · Comercio de frutas · Producción agrícola</p>
+            </div>
+
+            <div style="display:flex;gap:.6rem">
+              <div style="flex:1;background:rgba(255,255,255,0.06);padding:0.85rem;border-radius:10px">
+                <p style="margin:0;font-weight:700;color:white">Ética empresarial</p>
+                <p style="margin:.4rem 0 0;color:rgba(255,255,255,0.88);font-size:.95rem">Transparencia y compromiso a largo plazo</p>
+              </div>
+              <div style="width:58px;height:58px;border-radius:10px;background:rgba(255,255,255,0.06);display:grid;place-items:center;color:white;font-weight:700">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" aria-labelledby="nosotros-h" class="container">
+      <h2 id="nosotros-h">Sobre el grupo</h2>
+      <p class="lead">Grupo Terra es un holding comprometido con el crecimiento sostenible y la creación de valor a largo plazo. A través de innovación, práctica responsable y una visión estratégica, desarrollamos proyectos en vivienda vertical sustentable, comercialización y producción agrícola de frutas, siempre buscando eficiencia, calidad y beneficio social.</p>
+    </section>
+
+    <section id="lineas" class="container" aria-labelledby="lineas-h">
+      <h2 id="lineas-h">Líneas de negocio</h2>
+      <div class="services" role="list" aria-label="Líneas de negocio">
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <!-- Building icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 21h18" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 21V8.5a1 1 0 0 1 1-1h2V4.5a1 1 0 0 1 1-1h2v11" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13 20V11h5v9" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="service-title">Construcción de vivienda vertical sustentable</h3>
+            <p class="service-desc">Desarrollo y gestión de proyectos de vivienda vertical con enfoque en eficiencia energética, materiales responsables y diseño orientado a comunidades urbanas sostenibles.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <!-- Truck / commerce icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 7h13l4 4v6a1 1 0 0 1-1 1h-1" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7" cy="18" r="1.6" stroke="#20432a" stroke-width="1.4"/>
+              <circle cx="18" cy="18" r="1.6" stroke="#20432a" stroke-width="1.4"/>
+              <path d="M16 3v4" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="service-title">Comercialización de frutas</h3>
+            <p class="service-desc">Red de comercio y distribución que conecta productores con mercados nacionales e internacionales, priorizando calidad, trazabilidad y relaciones comerciales sostenibles.</p>
+          </div>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <!-- Farm / crop icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2v10" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 12c0-3.5 3-6 6-6s6 2.5 6 6" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 21h18" stroke="#20432a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="service-title">Producción agrícola de frutas</h3>
+            <p class="service-desc">Proyectos agrícolas basados en prácticas sustentables, tecnología de datos y gestión orientada a rendimiento, calidad y eficiencia productiva.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="fundadores" class="container" aria-labelledby="fundadores-h">
+      <h2 id="fundadores-h">Fundadores</h2>
+      <div class="founders-grid" role="list" aria-label="Equipo fundador">
+        <article class="founder" role="listitem">
+          <div class="avatar" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80" alt="Retrato Alex Ruiz">
+          </div>
+          <div>
+            <h3>Alex Ruiz</h3>
+            <p>Master en ventas, comercialización y manejo de equipos comerciales. Especialista en impulso de negocios, estrategia comercial y relación con clientes.</p>
+          </div>
+        </article>
+
+        <article class="founder" role="listitem">
+          <div class="avatar" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Retrato Jonathan Trujillo">
+          </div>
+          <div>
+            <h3>Jonathan Trujillo</h3>
+            <p>Master en producción agrícola, investigador y referente en sustentabilidad agrícola. Convierte proyectos agrícolas en modelos rentables mediante datos, indicadores clave y eficiencia productiva.</p>
+          </div>
+        </article>
+
+        <article class="founder" role="listitem">
+          <div class="avatar" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="Retrato Gabriel Ruiz">
+          </div>
+          <div>
+            <h3>Gabriel Ruiz</h3>
+            <p>Master en administración, control y dirección empresarial. Experto en negocios internacionales, marketing estratégico y aplicación de inteligencia artificial para la toma de decisiones.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="cta-h">
+      <div class="cta-strip" role="region" aria-labelledby="cta-h">
+        <div>
+          <h2 id="cta-h" style="margin:0">¿Listo para colaborar?</h2>
+          <p style="margin:.25rem 0 0;opacity:.95">Solicita información sobre proyectos, inversiones o alianzas estratégicas. Estamos abiertos a oportunidades que impulsen valor y sostenibilidad.</p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#contacto">Solicitar información</a>
+          <a class="btn btn-ghost-inverse" href="#contacto">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container" aria-labelledby="contacto-h">
+      <h2 id="contacto-h">Contacto</h2>
+      <div class="contact-grid" role="group" aria-label="Información de contacto y formulario">
+        <div style="display:grid;gap:.9rem">
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <!-- Email icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7A2.5 2.5 0 0 0 18.5 6h-13A2.5 2.5 0 0 0 3 8.5z" stroke="#20432a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 8l-9 6-9-6" stroke="#20432a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700">hola@grupoterramexico.com</div>
+              <div class="muted">Correo electrónico</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <!-- Phone icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92V21a1 1 0 0 1-1.08 1 19 19 0 0 1-8.63-3.08 19 19 0 0 1-6-6A19 19 0 0 1 2 3.08 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.86.38 1.7.75 2.5a1 1 0 0 1-.24 1.1L8.82 8.82a16 16 0 0 0 6 6l1.5-1.5a1 1 0 0 1 1.1-.25c.8.37 1.64.63 2.5.75a1 1 0 0 1 .75 1V21z" stroke="#20432a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700">+52 332 246 6734</div>
+              <div class="muted">Teléfono</div>
+            </div>
+          </div>
+
+          <p class="muted" style="margin-top:.6rem">Domicilio y atención por cita. Respetamos su privacidad y procesamos solicitudes con confidencialidad.</p>
+        </div>
+
+        <form class="contact-form" action="#" method="post" aria-label="Formulario de contacto">
+          <div class="row">
+            <label class="sr-only" for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required>
+          </div>
+
+          <div class="row">
+            <label class="sr-only" for="email">Correo</label>
+            <input id="email" name="email" type="email" placeholder="Correo electrónico" required>
+          </div>
+
+          <div class="row">
+            <label class="sr-only" for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente el motivo de tu contacto" required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+            <a class="btn btn-ghost" href="mailto:hola@grupoterramexico.com">Enviar por correo</a>
+          </div>
+
+          <div style="margin-top:.6rem" class="muted">Al enviar, aceptas que te contactemos para dar seguimiento a tu solicitud.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container legal">
+      <div>© <strong>Grupo Terra</strong> — <span class="muted">www.grupoterramexico.com</span></div>
+      <div class="muted">Diseño corporativo — Información sujeta a actualización</div>
+    </div>
+  </footer>
+</body>
+</html>
