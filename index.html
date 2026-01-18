@@ -3,193 +3,238 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Grupo Terra — Crecimiento sostenible, innovación y valor a largo plazo</title>
-  <meta name="description" content="Grupo Terra: holding dedicado a vivienda vertical sustentable, comercialización y producción agrícola de frutas. Innovación, sostenibilidad y crecimiento" />
-  <meta name="theme-color" content="#1f4f8b" />
-  <meta property="og:title" content="Grupo Terra — Crecimiento sostenible e innovación" />
-  <meta property="og:description" content="Holding dedicado a vivienda vertical sustentable, comercialización y producción agrícola de frutas. Innovación, sostenibilidad y crecimiento." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80" />
+  <title>Grupo Terra ��� Crecimiento sostenible e innovación</title>
+  <meta name="description" content="Grupo Terra: holding diversificado en vivienda sustentable, comercialización y producción agrícola. Innovación, sustentabilidad y resultados a largo plazo." />
   <link rel="canonical" href="https://www.grupoterramexico.com/" />
+  <meta property="og:site_name" content="Grupo Terra" />
+  <meta property="og:title" content="Grupo Terra — Crecimiento sostenible e innovación" />
+  <meta property="og:description" content="Holding diversificado en vivienda sustentable, comercialización y producción agrícola. Innovación, sustentabilidad y resultados medibles." />
+  <meta property="og:image" content="background.png" />
+  <meta name="theme-color" content="#0f5f46" />
   <style>
+    /*
+      Grupo Terra — Single-file, mobile-first HTML + CSS
+      Color / visual system: greens + blues, soft gradients
+      Accessibility & responsive: focus states, readable sizes, smooth scrolling
+    */
+
     :root{
-      --bg: #f7fbff;
-      --surface: #f1f5f9;
-      --muted: #6b7280;      /* neutral gray */
-      --accent: #1f4f8b;     /* deep navy blue */
-      --accent-2: #6ea7e6;   /* soft blue */
-      --accent-3: #94a3b8;   /* steel gray accent */
-      --earth: #8b6b4a;
+      --bg: #f6fbf9;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --ink: #05202a;
+      --green-700: #0f5f46; /* primary */
+      --green-500: #27a37a;
+      --teal-400: #2aa3b3;
+      --blue-500: #1f78b4;
       --glass: rgba(255,255,255,0.6);
-      --card-shadow: 0 6px 18px rgba(31,79,139,0.06);
       --radius: 12px;
-      --transition: 250ms cubic-bezier(.2,.9,.3,1);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color-scheme: light;
+      --shadow-sm: 0 6px 18px rgba(6,30,31,0.06);
+      --shadow-md: 0 12px 36px rgba(6,30,31,0.08);
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+      --container: 1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    /* Mobile-first base layout */
-    *{box-sizing: border-box}
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background: linear-gradient(180deg,var(--bg), #eaf3ff);
-      color:#0b2540;
+      background: linear-gradient(180deg,var(--bg), #eef9f6);
+      color:var(--ink);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
       font-size:16px;
-      letter-spacing: -0.01em;
+      line-height:1.5;
+      letter-spacing:-0.01em;
     }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:1.25rem;}
 
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--container);margin:0 auto;padding:1rem;}
+
+    /* HEADER */
     header.site-header{
-      position:sticky;
-      top:0;
-      z-index:40;
+      position:sticky;top:0;z-index:60;
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
-      border-bottom: 1px solid rgba(15,34,64,0.04);
+      border-bottom:1px solid rgba(6,30,31,0.04);
     }
-    .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 1rem}
+    .site-header .container{
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1rem;
+    }
+
     .brand{
       display:flex;align-items:center;gap:.75rem;
     }
-    .logo{
-      width:46px;height:46px;border-radius:10px;
-      background: linear-gradient(135deg,var(--accent),var(--accent-3));
-      display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow: var(--card-shadow);
-      overflow:hidden;
+    .brand .logo{
+      width:48px;height:48px;border-radius:10px;overflow:hidden;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--green-700),var(--blue-500));
+      box-shadow:var(--shadow-sm);
+      flex:0 0 48px;
     }
-    .logo img{width:100%;height:100%;object-fit:contain;display:block}
-    .brand .title{font-weight:700;font-size:0.98rem;color:var(--accent)}
-    nav a{font-weight:600;color:var(--muted);padding:.55rem .65rem;border-radius:8px}
-    nav a:hover{background:rgba(110,167,230,0.08);color:var(--accent)}
+    .brand .logo img{width:36px;height:36px;object-fit:contain}
+    .brand .titles{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .brand .titles .name{font-weight:700;color:var(--green-700);font-size:0.98rem}
+    .brand .titles .tag{font-size:0.82rem;color:var(--muted)}
+
+    nav.primary-nav{
+      display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+    }
+    nav.primary-nav a{
+      padding:.45rem .65rem;border-radius:10px;font-weight:600;color:var(--muted);font-size:0.95rem;
+    }
+    nav.primary-nav a:focus{outline:3px solid rgba(15,95,70,0.12);outline-offset:3px}
+    .header-cta{
+      display:inline-flex;align-items:center;gap:.6rem;padding:.55rem .9rem;border-radius:10px;background:linear-gradient(90deg,var(--green-700),var(--green-500));color:#fff;font-weight:700;
+      box-shadow:0 8px 20px rgba(12,55,44,0.12);
+    }
+    .header-cta:focus{outline:3px solid rgba(15,95,70,0.18);outline-offset:3px}
 
     /* HERO */
     .hero{
-      min-height:70vh;
+      min-height:72vh;
       display:grid;
-      place-items:center;
-      padding:4rem 1rem;
-      color:white;
+      align-items:center;
       position:relative;
       overflow:hidden;
     }
-    .hero::before{
-      content:"";
-      position:absolute;inset:0;
-      background-image:
-        linear-gradient(180deg, rgba(31,79,139,0.45), rgba(14,30,52,0.18));
-      z-index:1;
-      pointer-events:none;
+    .hero__bg{
+      position:absolute;inset:0;background-image:url("background.png");background-size:cover;background-position:center center;filter:contrast(.98) saturate(.98);
+      z-index:0;
     }
-    .hero-bg{
-      position:absolute;inset:0;background-size:cover;background-position:center center;filter:contrast(1.02) saturate(1.02) brightness(0.96);z-index:0;
-      /* Imagen de fondo que debes subir: images/bg/hero-blue.jpg */
-      background-image: url("images/bg/hero-blue.jpg");
+    .hero__overlay{
+      position:absolute;inset:0;background:linear-gradient(180deg, rgba(19,77,61,0.4), rgba(22,61,93,0.32));
+      mix-blend-mode:multiply;z-index:1;
     }
     .hero-inner{
-      position:relative;z-index:2;max-width:1100px;width:100%;
-      display:grid;gap:1rem;align-items:center;
+      position:relative;z-index:2;padding:2.25rem 1rem;
     }
     .hero-grid{
-      display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      padding:2rem;border-radius:14px;backdrop-filter: blur(6px);border:1px solid rgba(31,79,139,0.06);
+      max-width:var(--container);margin:0 auto;display:grid;gap:1rem;
+      grid-template-columns:1fr;
+      align-items:center;
     }
-    h1{
-      margin:0;font-size:clamp(1.6rem,4.5vw,2.6rem);line-height:1.02;font-weight:800;letter-spacing:-0.02em;color:var(--accent-2);
+    h1.hero-title{
+      margin:0;font-size:clamp(1.6rem,5vw,2.6rem);color:#fff;font-weight:800;letter-spacing:-0.02em;
+      text-shadow: 0 6px 22px rgba(6,30,31,0.28);
     }
-    .tagline{font-size:1.05rem;opacity:.96;color:rgba(255,255,255,0.95);margin-top:.35rem}
-    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+    p.hero-sub{
+      margin:.6rem 0 0;color:rgba(255,255,255,0.95);max-width:64ch;font-size:1.05rem;
+    }
+    .hero-ctas{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
     .btn{
-      display:inline-flex;align-items:center;gap:.6rem;padding:.65rem 1rem;border-radius:10px;border:0;font-weight:700;cursor:pointer;
-      transition:transform var(--transition), box-shadow var(--transition), background-color var(--transition), color var(--transition);
-      text-decoration:none;
+      display:inline-flex;align-items:center;gap:.6rem;padding:.6rem .95rem;border-radius:10px;border:0;font-weight:700;cursor:pointer;
+      transition:transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+      text-decoration:none;color:inherit;
     }
-    .btn:focus{outline:3px solid rgba(31,79,139,0.14);outline-offset:2px}
-    .btn-primary{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow: 0 8px 24px rgba(15,34,64,0.12);
-    }
-    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,34,64,0.18)}
-    .btn-ghost{
-      background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.12)
-    }
-    .btn-ghost:hover{transform:translateY(-2px); background: rgba(255,255,255,0.18)}
+    .btn-primary{background:linear-gradient(90deg,var(--green-700),var(--teal-400));color:#fff;box-shadow:var(--shadow-md)}
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{background: rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.12)}
+    .btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16)}
 
-    /* ABOUT & SERVICES */
-    main {padding:2.5rem 0 4rem;}
-    section {padding:2rem 0}
-    .lead{color:var(--muted);font-size:1rem;max-width:72ch}
-    .grid-3{display:grid;gap:1rem}
-    .services{display:grid;gap:1rem;margin-top:1rem}
-    .service-card{
-      background: linear-gradient(180deg, #ffffff, var(--surface));
-      border-radius:12px;padding:1.1rem;border:1px solid rgba(15,34,64,0.04);box-shadow:var(--card-shadow);
-      display:flex;gap:1rem;align-items:flex-start;transition:transform var(--transition), box-shadow var(--transition);
+    .hero-chips{display:flex;gap:.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .chip{
+      background:rgba(255,255,255,0.09);color:#fff;padding:.45rem .7rem;border-radius:999px;font-weight:700;font-size:0.92rem;border:1px solid rgba(255,255,255,0.06)
     }
-    .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(15,34,64,0.06)}
-    .service-icon{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;
-      background: linear-gradient(180deg, rgba(110,167,230,0.12), rgba(31,79,139,0.04));flex:0 0 56px}
-    .service-title{font-weight:700;margin:0 0 .25rem 0;color:var(--accent)}
-    .service-desc{margin:0;color:var(--muted);font-size:0.96rem}
+
+    /* SECTION BASICS */
+    main{padding:2rem 0 4rem}
+    section{padding:2rem 0}
+    .section-head{max-width:var(--container);margin:0 auto;padding:0 1rem}
+    .section-grid{max-width:var(--container);margin:1rem auto;padding:0 1rem;display:grid;gap:1rem}
+
+    h2.section-title{margin:0;font-size:1.25rem;color:var(--green-700);font-weight:800}
+    p.lead{color:var(--muted);max-width:72ch;margin-top:.6rem;font-size:1rem}
+
+    /* NOSOTROS - PILLARS */
+    .pillars{display:grid;gap:.75rem}
+    .pillar{
+      display:flex;gap:.75rem;align-items:flex-start;padding:1rem;border-radius:12px;background:linear-gradient(180deg,#fff,#f7faf7);
+      border:1px solid rgba(6,30,31,0.04);box-shadow:var(--shadow-sm)
+    }
+    .pillar .icon{width:44px;height:44px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(39,163,122,0.12),rgba(31,120,180,0.04));flex:0 0 44px}
+    .pillar h3{margin:0;font-size:0.98rem;color:var(--green-700);font-weight:700}
+    .pillar p{margin:.25rem 0 0;color:var(--muted);font-size:0.95rem}
+
+    /* AREAS */
+    .areas-grid{display:grid;gap:1rem}
+    .area-card{
+      padding:1rem;border-radius:12px;background:var(--card);border:1px solid rgba(6,30,31,0.04);box-shadow:var(--shadow-sm);
+      transition:transform var(--transition), box-shadow var(--transition);
+      display:flex;gap:0.9rem;align-items:flex-start;
+    }
+    .area-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(6,30,31,0.06)}
+    .area-icon{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(39,163,122,0.12),rgba(31,120,180,0.04));flex:0 0 56px}
+    .area-card h3{margin:0;font-size:1rem;color:var(--green-700);font-weight:700}
+    .area-card p{margin:.25rem 0 0;color:var(--muted);font-size:0.95rem}
 
     /* FOUNDERS */
-    .founders-grid{display:grid;gap:1rem;margin-top:1rem}
-    .founder{
-      background:linear-gradient(180deg,#ffffff,var(--surface));
-      border-radius:12px;padding:1rem;border:1px solid rgba(15,34,64,0.04);box-shadow:var(--card-shadow);display:flex;gap:.9rem;align-items:center;
+    .founders-grid{display:grid;gap:1rem}
+    .founder-card{
+      display:flex;gap:1rem;align-items:center;padding:1rem;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fdfb);
+      border:1px solid rgba(6,30,31,0.04);box-shadow:var(--shadow-sm);
       transition:transform var(--transition), box-shadow var(--transition);
     }
-    .founder:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(15,34,64,0.06)}
-    .avatar{width:80px;height:80px;border-radius:10px;overflow:hidden;flex:0 0 80px;background:#eee;border:2px solid rgba(110,167,230,0.06)}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    .founder h3{margin:0;font-size:1.05rem;color:var(--accent)}
-    .founder p{margin:.25rem 0 0;color:var(--muted);font-size:0.95rem}
+    .founder-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(6,30,31,0.06)}
+    .founder-photo{width:84px;height:84px;border-radius:14px;overflow:hidden;flex:0 0 84px;border:2px solid rgba(39,163,122,0.08)}
+    .founder-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .founder-info h3{margin:0;font-size:1rem;color:var(--green-700);font-weight:800}
+    .founder-info p{margin:.35rem 0 0;color:var(--muted);font-size:0.95rem}
 
-    /* CTA strip */
-    .cta-strip{
-      margin:2rem 0;padding:1.8rem;border-radius:14px;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));
-      color:white;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 12px 36px rgba(15,34,64,0.12);
+    /* ENFOQUE / PRINCIPIOS (microcopy grid) */
+    .principles{display:grid;gap:.8rem}
+    .principle{
+      display:flex;gap:.75rem;align-items:center;padding:.9rem;border-radius:12px;background:linear-gradient(180deg,#fff,#f7faf7);
+      border:1px solid rgba(6,30,31,0.04);box-shadow:var(--shadow-sm);
     }
-    .cta-strip p{margin:0;font-weight:700;font-size:1.05rem}
-    .cta-actions{display:flex;gap:.75rem}
-    .btn-ghost-inverse{background:transparent;color:white;border:1px solid rgba(255,255,255,0.18)}
-    .btn-ghost-inverse:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+    .principle .p-icon{width:44px;height:44px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(90deg,var(--green-700),var(--teal-400));color:#fff;font-weight:700;flex:0 0 44px}
+    .principle p{margin:0;font-weight:700;color:var(--ink);font-size:0.95rem}
 
     /* CONTACT */
-    .contact-grid{display:grid;gap:1rem}
-    .contact-card{display:flex;gap:0.9rem;align-items:center;background:linear-gradient(180deg,#fff,var(--surface));padding:1rem;border-radius:10px;border:1px solid rgba(15,34,64,0.04);box-shadow:var(--card-shadow)}
-    .contact-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:8px;background:linear-gradient(180deg, rgba(110,167,230,0.12), rgba(31,79,139,0.04));flex:0 0 48px}
-    form.contact-form{display:grid;gap:.75rem}
-    form .row{display:grid;gap:.6rem}
-    input[type="text"], input[type="email"], textarea{
-      width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(15,34,64,0.08);font-size:0.97rem;background:white
+    .contact-grid{display:grid;gap:1rem;align-items:start}
+    .contact-card{
+      padding:1rem;border-radius:12px;background:linear-gradient(180deg,#fff,#f6fbf9);border:1px solid rgba(6,30,31,0.04);box-shadow:var(--shadow-sm);
+      display:flex;gap:.75rem;align-items:center;
     }
-    textarea{min-height:120px;resize:vertical;padding-top:.8rem}
-    form .form-actions{display:flex;gap:.6rem;flex-wrap:wrap}
-    .muted{color:var(--muted);font-size:.95rem}
+    .contact-card .c-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg,rgba(39,163,122,0.12),rgba(31,120,180,0.04));display:grid;place-items:center;flex:0 0 48px}
+    form.contact-form{display:grid;gap:.75rem}
+    input,textarea{
+      width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(6,30,31,0.08);font-size:0.95rem;background:white
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+    .small-muted{color:var(--muted);font-size:0.92rem}
 
-    footer.site-footer{padding:2rem 0;border-top:1px solid rgba(15,34,64,0.04);color:var(--muted);font-size:.92rem}
-    .legal{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    /* FOOTER */
+    footer.site-footer{padding:2rem 0;border-top:1px solid rgba(6,30,31,0.04);color:var(--muted);font-size:0.95rem}
+    .footer-inner{max-width:var(--container);margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .footer-links{display:flex;gap:.6rem;flex-wrap:wrap}
+    .footer-links a{color:var(--muted);font-weight:600;padding:.35rem .55rem;border-radius:8px}
+    .footer-logo img{width:36px;height:36px}
 
-    /* Responsive */
+    /* Responsive layout changes */
     @media(min-width:720px){
-      .hero-inner{padding:0 1rem}
-      .hero-grid{grid-template-columns:1fr 420px;gap:1.5rem;padding:2.2rem}
-      .services{grid-template-columns:repeat(3,1fr)}
+      .hero-grid{grid-template-columns:1fr 420px;gap:1.25rem;align-items:center}
+      .pillars{grid-template-columns:repeat(3,1fr)}
+      .areas-grid{grid-template-columns:repeat(2,1fr)}
       .founders-grid{grid-template-columns:repeat(3,1fr)}
+      .principles{grid-template-columns:repeat(3,1fr)}
       .contact-grid{grid-template-columns:1fr 380px}
+      .hero-inner{padding:3.25rem 1rem}
     }
 
     @media(min-width:1000px){
-      .container{padding:2rem}
-      header.site-header .container{padding:1rem 2rem}
+      .container{padding:1.5rem}
+      .site-header .container{padding:1rem 1.75rem}
     }
 
-    /* Small niceties */
+    /* Focus & small niceties */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .visually-muted{color:var(--muted)}
   </style>
 </head>
 <body>
@@ -197,229 +242,353 @@
     <div class="container">
       <div class="brand" aria-hidden="false">
         <div class="logo" aria-hidden="true">
-          <img src="images/logo/grupo-terra-logo.png" alt="Grupo Terra logo">
+          <img src="logo.png" alt="Logo Grupo Terra">
         </div>
-        <div>
-          <div class="title">Grupo Terra</div>
-          <div class="muted" style="font-size:0.82rem">Crecimiento sostenible · Innovación</div>
+        <div class="titles">
+          <div class="name">Grupo Terra</div>
+          <div class="tag">Crecimiento sostenible · Innovación</div>
         </div>
       </div>
 
-      <nav aria-label="Navegación principal">
+      <nav class="primary-nav" role="navigation" aria-label="Navegación principal">
         <a href="#nosotros">Nosotros</a>
-        <a href="#lineas">Líneas</a>
+        <a href="#areas">Áreas</a>
         <a href="#fundadores">Fundadores</a>
+        <a href="#enfoque">Enfoque</a>
         <a href="#contacto">Contacto</a>
+        <a class="header-cta" href="#contacto">Solicitar información</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-label="Hero">
-      <div class="hero-bg" role="img" aria-label="Imagen corporativa - construcción y agricultura"></div>
+    <!-- HERO -->
+    <section class="hero" aria-label="Introducción">
+      <div class="hero__bg" role="img" aria-label="Imagen corporativa de Grupo Terra - fondo"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
       <div class="hero-inner container">
-        <div class="hero-grid" aria-hidden="false">
+        <div class="hero-grid">
           <div>
-            <h1>Grupo Terra</h1>
-            <p class="tagline">Impulsamos crecimiento sostenible e innovación para crear valor duradero en vivienda, comercio y producción agrícola.</p>
+            <h1 class="hero-title">Grupo Terra</h1>
+            <p class="hero-sub">Holding diversificado que impulsa proyectos de vivienda sustentable, comercialización y producción agrícola con enfoque en innovación, eficiencia y crecimiento a largo plazo.</p>
 
             <div class="hero-ctas" role="group" aria-label="Acciones principales">
-              <a class="btn btn-primary" href="#nosotros">Conocer más</a>
-              <a class="btn btn-ghost" href="#contacto">Contacto</a>
+              <a class="btn btn-primary" href="#nosotros">Conoce el grupo</a>
+              <a class="btn btn-ghost" href="#contacto">Hablar con nosotros</a>
             </div>
 
-            <p class="muted" style="margin-top:1.1rem">Holding diversificado enfocado en proyectos rentables y sostenibles, con visión a largo plazo en México y mercados internacionales.</p>
+            <div class="hero-chips" aria-hidden="false" aria-label="Áreas destacadas">
+              <div class="chip">Vivienda sustentable</div>
+              <div class="chip">Agro & comercialización</div>
+              <div class="chip">Consultoría de negocios</div>
+            </div>
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:.8rem;justify-content:center;">
-            <div style="background:rgba(255,255,255,0.06);padding:1rem;border-radius:10px">
-              <h2 style="color:white;margin:0;font-size:1rem;">Nuestras áreas</h2>
-              <p style="margin:.4rem 0 0;color:rgba(255,255,255,0.92)">Vivienda sustentable · Comercio de frutas · Producción agrícola</p>
+          <aside aria-label="Resumen rápido" style="display:flex;flex-direction:column;gap:.9rem;">
+            <div style="padding:1rem;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(4px);color:#fff;">
+              <strong style="display:block;font-size:0.98rem">Nuestro enfoque</strong>
+              <span style="color:rgba(255,255,255,0.92)">Sustentabilidad, claridad operativa y resultados medibles.</span>
             </div>
 
-            <div style="display:flex;gap:.6rem">
-              <div style="flex:1;background:rgba(255,255,255,0.06);padding:0.85rem;border-radius:10px">
-                <p style="margin:0;font-weight:700;color:white">Ética empresarial</p>
-                <p style="margin:.4rem 0 0;color:rgba(255,255,255,0.88);font-size:.95rem">Transparencia y compromiso a largo plazo</p>
+            <div style="display:flex;gap:.6rem;">
+              <div style="flex:1;padding:0.85rem;border-radius:10px;background:rgba(255,255,255,0.06);color:#fff">
+                <strong style="display:block">Ética empresarial</strong>
+                <small style="color:rgba(255,255,255,0.88)">Transparencia y compromiso</small>
               </div>
-              <div style="width:58px;height:58px;border-radius:10px;background:rgba(255,255,255,0.06);display:grid;place-items:center;color:white;font-weight:700">+</div>
+              <div style="width:58px;height:58px;border-radius:10px;background:rgba(255,255,255,0.06);display:grid;place-items:center;color:#fff;font-weight:700">+</div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section id="nosotros" aria-labelledby="nosotros-h" class="container">
-      <h2 id="nosotros-h">Sobre el grupo</h2>
-      <p class="lead">Grupo Terra es un holding comprometido con el crecimiento sostenible y la creación de valor a largo plazo. A través de innovación, práctica responsable y una visión estratégica</p>
-    </section>
+    <!-- NOSOTROS -->
+    <section id="nosotros" aria-labelledby="nosotros-h" class="section-head">
+      <h2 id="nosotros-h" class="section-title">Nosotros</h2>
+      <p class="lead">Grupo Terra es un holding de empresas con visión a largo plazo. Combinamos experiencia en proyectos inmobiliarios sustentables, comercio agrícola y consultoría para generar valor sostenible y medible para inversionistas, productores y comunidades.</p>
 
-    <section id="lineas" class="container" aria-labelledby="lineas-h">
-      <h2 id="lineas-h">Líneas de negocio</h2>
-      <div class="services" role="list" aria-label="Líneas de negocio">
-        <article class="service-card" role="listitem">
-          <div class="service-icon" aria-hidden="true">
-            <!-- Building icon -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 21h18" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 21V8.5a1 1 0 0 1 1-1h2V4.5a1 1 0 0 1 1-1h2v11" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M13 20V11h5v9" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="section-grid pillars" role="list" aria-label="Pilares">
+        <article class="pillar" role="listitem" aria-labelledby="p1">
+          <div class="icon" aria-hidden="true">
+            <!-- leaf / sustainability -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 21s7-4 11-8c4-4 5-9 5-9s-5 1-9 5C7 15 3 21 3 21z" stroke="#0f5f46" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div>
-            <h3 class="service-title">Construcción de vivienda vertical sustentable</h3>
-            <p class="service-desc">Desarrollo y gestión de proyectos de vivienda vertical con enfoque en eficiencia energética, materiales responsables y diseño orientado a comunidades urbanas sostenibles</p>
+            <h3 id="p1">Visión sostenible</h3>
+            <p>Diseñamos proyectos con impacto ambiental reducido y beneficios sociales, integrando prácticas responsables desde la concepción hasta la operación.</p>
           </div>
         </article>
 
-        <article class="service-card" role="listitem">
-          <div class="service-icon" aria-hidden="true">
-            <!-- Truck / commerce icon -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 7h13l4 4v6a1 1 0 0 1-1 1h-1" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="7" cy="18" r="1.6" stroke="#1f4f8b" stroke-width="1.4"/>
-              <circle cx="18" cy="18" r="1.6" stroke="#1f4f8b" stroke-width="1.4"/>
-              <path d="M16 3v4" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <article class="pillar" role="listitem" aria-labelledby="p2">
+          <div class="icon" aria-hidden="true">
+            <!-- compass / clarity -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2v4" stroke="#1f78b4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="8" stroke="#1f78b4" stroke-width="1.2"/>
+              <path d="M12 8l3 3-3 1-1 3-1-7 2-0z" stroke="#1f78b4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div>
-            <h3 class="service-title">Comercialización de frutas</h3>
-            <p class="service-desc">Red de comercio y distribución que conecta productores con mercados nacionales e internacionales, priorizando calidad, trazabilidad y relaciones comerciales sosten[...]</p>
+            <h3 id="p2">Ejecución con claridad</h3>
+            <p>Procesos simples, decisiones basadas en datos y gestión transparente para avanzar con seguridad y eficiencia.</p>
           </div>
         </article>
 
-        <article class="service-card" role="listitem">
-          <div class="service-icon" aria-hidden="true">
-            <!-- Farm / crop icon -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 2v10" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 12c0-3.5 3-6 6-6s6 2.5 6 6" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M3 21h18" stroke="#1f4f8b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <article class="pillar" role="listitem" aria-labelledby="p3">
+          <div class="icon" aria-hidden="true">
+            <!-- graph / results -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 3v18h18" stroke="#27a37a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 14l3-4 4 5 5-8" stroke="#27a37a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div>
-            <h3 class="service-title">Producción agrícola de frutas</h3>
-            <p class="service-desc">Proyectos agrícolas basados en prácticas sustentables, tecnología de datos y gestión orientada a rendimiento, calidad y eficiencia productiva.</p>
+            <h3 id="p3">Resultados medibles</h3>
+            <p>Definimos indicadores claros y monitoreamos impacto y rendimiento para garantizar que las iniciativas entreguen valor real.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="fundadores" class="container" aria-labelledby="fundadores-h">
-      <h2 id="fundadores-h">Fundadores</h2>
-      <div class="founders-grid" role="list" aria-label="Equipo fundador">
-        <article class="founder" role="listitem">
-          <div class="avatar" aria-hidden="true">
-            <img src="images/alex-ruiz.PNG" alt="Alex Ruiz">
+    <!-- AREAS -->
+    <section id="areas" aria-labelledby="areas-h" class="section-head">
+      <h2 id="areas-h" class="section-title">Áreas de negocio</h2>
+      <p class="lead">Operamos en áreas complementarias que permiten sinergias reales entre inversión, producción y comercialización.</p>
+
+      <div class="section-grid areas-grid" role="list" aria-label="Áreas de negocio">
+        <article class="area-card" role="listitem" aria-labelledby="a1">
+          <div class="area-icon" aria-hidden="true">
+            <!-- building icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 21h18" stroke="#0f5f46" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 21V8.5a1 1 0 0 1 1-1h2V4.5a1 1 0 0 1 1-1h2v11" stroke="#0f5f46" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13 20V11h5v9" stroke="#0f5f46" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div>
-            <h3>Alex Ruiz</h3>
-            <p>Master en ventas, comercialización y manejo de equipos comerciales. Especialista en impulso de negocios, estrategia comercial y relación con clientes.</p>
+            <h3 id="a1">Construcción de vivienda vertical sustentable</h3>
+            <p>Desarrollo de proyectos residenciales con enfoque en eficiencia energética, calidad constructiva y diseño pensado para comunidades urbanas.</p>
           </div>
         </article>
 
-        <article class="founder" role="listitem">
-          <div class="avatar" aria-hidden="true">
-            <img src="images/jonathan-trujillo.PNG" alt="Jonathan Trujillo">
+        <article class="area-card" role="listitem" aria-labelledby="a2">
+          <div class="area-icon" aria-hidden="true">
+            <!-- truck icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 7h13l4 4v6a1 1 0 0 1-1 1h-1" stroke="#1f78b4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7" cy="18" r="1.6" stroke="#1f78b4" stroke-width="1.4"/>
+              <circle cx="18" cy="18" r="1.6" stroke="#1f78b4" stroke-width="1.4"/>
+            </svg>
           </div>
           <div>
-            <h3>Jonathan Trujillo</h3>
-            <p>Master en producción agrícola, investigador y referente en sustentabilidad agrícola. Convierte proyectos agrícolas en modelos rentables mediante datos, indicadores clave y eficiencia</p>
+            <h3 id="a2">Comercialización de frutas</h3>
+            <p>Red de distribución que conecta productores con mercados nacionales e internacionales, priorizando calidad, trazabilidad y relaciones duraderas.</p>
           </div>
         </article>
 
-        <article class="founder" role="listitem">
-          <div class="avatar" aria-hidden="true">
-            <img src="images/gabriel-ruiz.PNG" alt="Gabriel Ruiz">
+        <article class="area-card" role="listitem" aria-labelledby="a3">
+          <div class="area-icon" aria-hidden="true">
+            <!-- farm icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2v10" stroke="#27a37a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 12c0-3.5 3-6 6-6s6 2.5 6 6" stroke="#27a37a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 21h18" stroke="#27a37a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div>
-            <h3>Gabriel Ruiz</h3>
-            <p>Master en administración, control y dirección empresarial. Experto en negocios internacionales, marketing estratégico y aplicación de inteligencia artificial</p>
+            <h3 id="a3">Producción agrícola de frutas</h3>
+            <p>Prácticas sustentables y tecnología de datos para optimizar rendimiento, calidad y eficiencia productiva en campo.</p>
           </div>
+        </article>
+
+        <article class="area-card" role="listitem" aria-labelledby="a4">
+          <div class="area-icon" aria-hidden="true">
+            <!-- consulting icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 7h8" stroke="#1f78b4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 11h10" stroke="#1f78b4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 15h6" stroke="#1f78b4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="a4">Consultoría de negocios</h3>
+            <p>Apoyo en administración, control, dirección, marketing estratégico e implementación de inteligencia artificial aplicada para decisiones precisas.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="max-width:var(--container);margin:1rem auto;padding:0 1rem;">
+        <a class="btn btn-primary" href="#contacto">Quiero una propuesta</a>
+      </div>
+    </section>
+
+    <!-- FUNDADORES -->
+    <section id="fundadores" aria-labelledby="fundadores-h" class="section-head">
+      <h2 id="fundadores-h" class="section-title">Fundadores</h2>
+      <p class="lead">Equipo fundador con experiencia combinada en ventas, producción agrícola y dirección empresarial, enfocado en transformar proyectos en resultados sostenibles.</p>
+
+      <div class="section-grid founders-grid" role="list" aria-label="Equipo fundador">
+        <article class="founder-card" role="listitem" aria-labelledby="f1">
+          <div class="founder-photo" aria-hidden="true">
+            <img src="alex-ruiz.PNG" alt="Alex Ruiz — foto">
+          </div>
+          <div class="founder-info">
+            <h3 id="f1">Alex Ruiz</h3>
+            <p>Maestro en ventas y comercialización, líder en gestión de equipos comerciales. Experto en impulsar negocios mediante estrategia comercial, relaciones con clientes y crecimiento sostenido.</p>
+          </div>
+        </article>
+
+        <article class="founder-card" role="listitem" aria-labelledby="f2">
+          <div class="founder-photo" aria-hidden="true">
+            <img src="jonathan-trujillo.PNG" alt="Jonathan Trujillo — foto">
+          </div>
+          <div class="founder-info">
+            <h3 id="f2">Jonathan Trujillo</h3>
+            <p>Maestro en producción agrícola e investigador en sustentabilidad. Convierte proyectos agrícolas en modelos rentables apoyados en datos, indicadores clave y mejores prácticas.</p>
+          </div>
+        </article>
+
+        <article class="founder-card" role="listitem" aria-labelledby="f3">
+          <div class="founder-photo" aria-hidden="true">
+            <img src="gabriel-ruiz.PNG" alt="Gabriel Ruiz — foto">
+          </div>
+          <div class="founder-info">
+            <h3 id="f3">Gabriel Ruiz</h3>
+            <p>Maestro en administración y dirección; especialista en negocios internacionales, marketing estratégico y aplicación práctica de inteligencia artificial para optimizar resultados.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="max-width:var(--container);margin:1rem auto;padding:0 1rem;">
+        <a class="btn btn-primary" href="#contacto">Conectar con nosotros</a>
+      </div>
+    </section>
+
+    <!-- ENFOQUE / PRINCIPIOS -->
+    <section id="enfoque" aria-labelledby="enfoque-h" class="section-head">
+      <h2 id="enfoque-h" class="section-title">Cómo trabajamos</h2>
+      <p class="lead">Principios en acción: microcompromisos que guían cada proyecto y cada decisión.</p>
+
+      <div class="section-grid principles" role="list" aria-label="Principios en acción">
+        <article class="principle" role="listitem" aria-labelledby="pr1">
+          <div class="p-icon" aria-hidden="true">C</div>
+          <p id="pr1">Claridad antes que complejidad — comunicamos pasos y resultados con precisión.</p>
+        </article>
+
+        <article class="principle" role="listitem" aria-labelledby="pr2">
+          <div class="p-icon" aria-hidden="true">S</div>
+          <p id="pr2">Sustentabilidad entendida como eficiencia y bienestar a largo plazo.</p>
+        </article>
+
+        <article class="principle" role="listitem" aria-labelledby="pr3">
+          <div class="p-icon" aria-hidden="true">O</div>
+          <p id="pr3">Optimización que se nota — mejoras continuas basadas en datos.</p>
+        </article>
+
+        <article class="principle" role="listitem" aria-labelledby="pr4">
+          <div class="p-icon" aria-hidden="true">F</div>
+          <p id="pr4">Facilidad para nuestros aliados — procesos diseñados para avanzar sin fricción.</p>
+        </article>
+
+        <article class="principle" role="listitem" aria-labelledby="pr5">
+          <div class="p-icon" aria-hidden="true">R</div>
+          <p id="pr5">Respeto en relaciones — atención humana y profesionalidad en cada interacción.</p>
+        </article>
+
+        <article class="principle" role="listitem" aria-labelledby="pr6">
+          <div class="p-icon" aria-hidden="true">Q</div>
+          <p id="pr6">Calidad de servicio — entregamos soluciones medibles y sostenibles.</p>
         </article>
       </div>
     </section>
 
-    <section class="container" aria-labelledby="cta-h">
-      <div class="cta-strip" role="region" aria-labelledby="cta-h">
+    <!-- CONTACTO -->
+    <section id="contacto" aria-labelledby="contacto-h" class="section-head">
+      <h2 id="contacto-h" class="section-title">Hablemos</h2>
+      <p class="lead">Solicita información sobre proyectos, inversiones o alianzas. Responderemos a la brevedad.</p>
+
+      <div class="section-grid contact-grid" role="region" aria-label="Contacto">
         <div>
-          <h2 id="cta-h" style="margin:0">¿Listo para colaborar?</h2>
-          <p style="margin:.25rem 0 0;opacity:.95">Solicita información sobre proyectos, inversiones o alianzas estratégicas. Estamos abiertos a oportunidades que impulsen valor y sostenibilidad.</p>
-        </div>
-
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="#contacto">Solicitar información</a>
-          <a class="btn btn-ghost-inverse" href="#contacto">Contáctanos</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="container" aria-labelledby="contacto-h">
-      <h2 id="contacto-h">Contacto</h2>
-      <div class="contact-grid" role="group" aria-label="Información de contacto y formulario">
-        <div style="display:grid;gap:.9rem">
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">
-              <!-- Email icon -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7A2.5 2.5 0 0 0 18.5 6h-13A2.5 2.5 0 0 0 3 8.5z" stroke="#1f4f8b" stroke-width="1.2" stroke-linecap="round" stroke-line[...]/>
-                <path d="M21 8l-9 6-9-6" stroke="#1f4f8b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="contact-card" role="article" aria-labelledby="c-email">
+            <div class="c-icon" aria-hidden="true">
+              <!-- mail -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7A2.5 2.5 0 0 0 18.5 6h-13A2.5 2.5 0 0 0 3 8.5z" stroke="#0f5f46" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 8l-9 6-9-6" stroke="#0f5f46" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div>
-              <div style="font-weight:700">hola@grupoterramexico.com</div>
-              <div class="muted">Correo electrónico</div>
+              <div id="c-email" style="font-weight:700">hola@grupoterramexico.com</div>
+              <div class="small-muted">Correo electrónico</div>
             </div>
           </div>
 
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">
-              <!-- Phone icon -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 16.92V21a1 1 0 0 1-1.08 1 19 19 0 0 1-8.63-3.08 19 19 0 0 1-6-6A19 19 0 0 1 2 3.08 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.86.38 1.7.75 2.5a1 1 0 0 1-.24 1.1L8.82 8.82a16 1[...]"/>
+          <div class="contact-card" role="article" aria-labelledby="c-phone" style="margin-top:.7rem">
+            <div class="c-icon" aria-hidden="true">
+              <!-- phone -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M22 16.92V21a1 1 0 0 1-1.08 1 19 19 0 0 1-8.63-3.08 19 19 0 0 1-6-6A19 19 0 0 1 2 3.08 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.86.38 1.7.75 2.5a1 1 0 0 1-.24 1.1L8.82 8.82" stroke="#1f78b4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div>
-              <div style="font-weight:700">+52 332 246 6734</div>
-              <div class="muted">Teléfono</div>
+              <div id="c-phone" style="font-weight:700">+52 332 246 6734</div>
+              <div class="small-muted">Teléfono / WhatsApp</div>
             </div>
           </div>
 
-          <p class="muted" style="margin-top:.6rem">Domicilio y atención por cita. Respetamos su privacidad y procesamos solicitudes con confidencialidad.</p>
+          <p class="small-muted" style="margin-top:.6rem">Domicilio y atención por cita. Respetamos su privacidad y gestionamos la información con confidencialidad.</p>
+
+          <div style="display:flex;gap:.6rem;margin-top:1rem;">
+            <a class="btn btn-primary" href="mailto:hola@grupoterramexico.com">Enviar correo</a>
+            <a class="btn btn-ghost" href="https://wa.me/523322466734" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
 
         <form class="contact-form" action="#" method="post" aria-label="Formulario de contacto">
-          <div class="row">
-            <label class="sr-only" for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required>
-          </div>
+          <label class="sr-only" for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required>
 
-          <div class="row">
-            <label class="sr-only" for="email">Correo</label>
-            <input id="email" name="email" type="email" placeholder="Correo electrónico" required>
-          </div>
+          <label class="sr-only" for="email">Correo</label>
+          <input id="email" name="email" type="email" placeholder="Correo electrónico" required>
 
-          <div class="row">
-            <label class="sr-only" for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente el motivo de tu contacto" required></textarea>
-          </div>
+          <label class="sr-only" for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente el motivo de tu contacto" required></textarea>
 
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Enviar mensaje</button>
             <a class="btn btn-ghost" href="mailto:hola@grupoterramexico.com">Enviar por correo</a>
           </div>
 
-          <div style="margin-top:.6rem" class="muted">Al enviar, aceptas que te contactemos para dar seguimiento a tu solicitud.</div>
+          <div class="small-muted" style="margin-top:.6rem">Al enviar, aceptas que te contactemos para dar seguimiento a tu solicitud.</div>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container legal">
-      <div>© <strong>Grupo Terra</strong> — <span class="muted">www.grupoterramexico.com</span></div>
-      <div class="muted">Diseño corporativo — Información sujeta a actualización</div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <div class="footer-logo" aria-hidden="true">
+          <img src="logo.png" alt="Logo Grupo Terra">
+        </div>
+        <div>© Grupo Terra <span class="visually-muted">—</span> <span class="small-muted" id="year"></span></div>
+      </div>
+
+      <nav class="footer-links" aria-label="Enlaces del pie">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#areas">Áreas</a>
+        <a href="#fundadores">Fundadores</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
   </footer>
+
+  <script>
+    // Minimal: set current year for copyright
+    (function(){ var y = new Date().getFullYear(); var el = document.getElementById('year'); if(el) el.textContent = y; })();
+  </script>
 </body>
 </html>
